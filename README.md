@@ -2,7 +2,7 @@
 
 The advantage of queuing tool has over the programs for writing queues that you wrote last week is that it can be used to model systems of queues.  In other words, we can use queuing tool to model the two connected queues that are indicated in the following diagram: 
 
-![](seq-queue.png)
+![](double-queue.png)
 
 The code in `main.py` provides all the code required to set up and run a simulation of the queue shown in the figure above.  Lets go through this step by step in order to explain how we provide information on the network of queues to queuing tool.  The first thing we need to understand is this command:
 
@@ -19,6 +19,22 @@ edge_list = {0: {1: 1}, 1: {2: 2}}
 This command tells queuing tool that the queue server on the edge that connects node 0 and node 1 is of type 1 and that the queue server on the edge that connects nodes 1 and 2 is of type 2.  These two types of queue server objects are then defined in the following code:
 
 ```python
+def rate(t) : 
+    '''rate of arrivals'''
+    return 0.25
+
+def arr_f(t):
+    '''arrival times'''
+    return qt.poisson_random_measure(t, rate, 0.25 )
+
+def ser_order(t):
+    '''time to get order'''
+    return t + np.random.exponential(1.0)
+    
+def ser_tea(t):
+    '''time to get order'''
+    return t + np.random.exponential(2.0)
+
 q_classes = { 1: qt.QueueServer, 2: qt.QueueServer }
 q_args = {
     1: {
@@ -34,3 +50,5 @@ q_args = {
 ```
 
 Notice how the functions we have written and looked at in previous exercises are used to determine when customers arrive in the queue and how long it takes to server customers.  Notice, furthermore, that no `arrival_f` function is defined for the second queue as agents arrive in this queue when they have finished being served by the first queue server.
+
+Look back at the first of the exercises on queuing tool where you determined the time the agents spend in the in the queue.  __Your task in this exercise is to write similar code to determine the total each agent spends between arriving at the first queue and leaving the second queue after being served.__
