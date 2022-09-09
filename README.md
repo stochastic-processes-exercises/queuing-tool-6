@@ -51,4 +51,15 @@ q_args = {
 
 Notice how the functions we have written and looked at in previous exercises are used to determine when customers arrive in the queue and how long it takes to server customers.  Notice, furthermore, that no `arrival_f` function is defined for the second queue as agents arrive in this queue when they have finished being served by the first queue server.
 
-Look back at the first of the exercises on queuing tool where you determined the time the agents spend in the in the queue.  __Your task in this exercise is to write similar code to determine the total each agent spends between arriving at the first queue and leaving the second queue after being served.__
+Notice that the variable `g` that is used in the call to `qt.QueueNetwork` is created from the variables `adj_list` and `edge_list` that we defined above by the following command:
+
+```python
+g = qt.adjacency2graph(adjacency=adja_list, edge_type=edge_list)
+```
+
+This object contains all the information about the graph on which our queues sit.
+
+Look back at the first of the exercises on queuing tool where drew a graph showing the time each the agents spent in the in the queue.  __Your task in this exercise is to write similar code to determine the total each agent spends between arriving at the first queue and leaving the second queue after being served.__  As in that first exercise you should __plot a graph that shows plot how long each agent spends in the queue system.__  The x-coordinates of the points in your graph should be numerical indices that distinguish each agent.  The x-coordinate of the first point will thus be 1, the x-coordinate of the second point will be 2, the third will be 3 and so on.  The y-coordinates should then tell you how long that particular agent spent in the queue.  In other words, the nth y-coordinate will tell you the amount of time that passed between the arrival of the nth agent into the queuing system and their departure time from it.  
+
+The x-axis of your plot should have the label "Agent" and the y-axis of your plot should have the label "Time spent in system".
+ 
