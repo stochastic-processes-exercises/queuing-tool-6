@@ -20,15 +20,12 @@ This command tells queuing tool that the queue server on the edge that connects 
 
 ```python
 def rate(t) : 
-    '''rate of arrivals'''
     return 0.25
 
 def arr_f(t):
-    '''arrival times'''
     return qt.poisson_random_measure(t, rate, 0.25 )
 
 def ser_order(t):
-    '''time to get order'''
     return t + np.random.exponential(1.0)
     
 def ser_tea(t):
@@ -59,7 +56,7 @@ g = qt.adjacency2graph(adjacency=adja_list, edge_type=edge_list)
 
 This object contains all the information about the graph on which our queues sit.
 
-Look back at the first of the exercises on queuing tool where drew a graph showing the time each the agents spent in the in the queue.  __Your task in this exercise is to write similar code to determine the total each agent spends between arriving at the first queue and leaving the second queue after being served.__  As in that first exercise you should __plot a graph that shows plot how long each agent spends in the queue system.__  The x-coordinates of the points in your graph should be numerical indices that distinguish each agent.  The x-coordinate of the first point will thus be 1, the x-coordinate of the second point will be 2, the third will be 3 and so on.  The y-coordinates should then tell you how long that particular agent spent in the queue.  In other words, the nth y-coordinate will tell you the amount of time that passed between the arrival of the nth agent into the queuing system and their departure time from it.  
+Look back at the first of the exercises on queuing tool where drew a graph showing the time each the agents spent in the in the queue.  __Your task in this exercise is to write similar code to the code that you wrote in the first exercise to simulate the queue and to determine the total each agent spends between arriving at the first queue and leaving the second queue after being served.__  As in that first exercise you should __plot a graph that shows plot how long each agent spends in the queue system.__  The x-coordinates of the points in your graph should be numerical indices that distinguish each agent.  The x-coordinate of the first point will thus be 1, the x-coordinate of the second point will be 2, the third will be 3 and so on.  The y-coordinates should then tell you how long that particular agent spent in the queue.  In other words, the nth y-coordinate will tell you the amount of time that passed between the arrival of the nth agent into the queuing system and their departure time from it.  
 
 The x-axis of your plot should have the label "Agent" and the y-axis of your plot should have the label "Time spent in system".
  
