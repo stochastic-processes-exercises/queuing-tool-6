@@ -46,12 +46,12 @@ q_args = {
 }
 ```
 
-Notice how the functions we have written and looked at in previous exercises are used to determine when customers arrive in the queue and how long it takes to server customers.  Notice, furthermore, that no `arrival_f` function is defined for the second queue as agents arrive in this queue when they have finished being served by the first queue server.
+Notice how the functions we have written and looked at in previous exercises are used to determine when customers arrive in the queue and how long it takes to server customers.  The only difference is that we now define two queue server objects, which we can refer to using the labels 1 and 2 as we have set the variable `q_classes` above.  The parameters for these two Queue server objects are set in the `q_args` variable.  Notice, furthermore, that no `arrival_f` function is defined for the second queue as agents arrive in this queue when they have finished being served by the first queue server.
 
-Notice that the variable `g` that is used in the call to `qt.QueueNetwork` is created from the variables `adj_list` and `edge_list` that we defined above by the following command:
+Notice finally that the variable `g` that we have always used in the call to `qt.QueueNetwork` is created from the variables `adj_list` and `edge_list` that we defined above by the following command:
 
 ```python
-g = qt.adjacency2graph(adjacency=adja_list, edge_type=edge_list)
+g = qt.adjacency2graph(adjacency=adj_list, edge_type=edge_list)
 ```
 
 This object contains all the information about the graph on which our queues sit.

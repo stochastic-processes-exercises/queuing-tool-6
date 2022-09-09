@@ -1,14 +1,13 @@
 import matplotlib.pyplot as plt
 import queueing_tool as qt
 import numpy as np
-from mm1 import *
 
 # Create the adjacency list of the graph for this network
 adj_list = {0: [1], 1: [2]}
 # Now say what type of queue is on each edge
 edge_list = {0: {1: 1}, 1: {2: 2}}
 # And create the graph object
-g = qt.adjacency2graph(adjacency=adja_list, edge_type=edge_list)
+g = qt.adjacency2graph(adjacency=adj_list, edge_type=edge_list)
 
 # And now create the queue server objects
 def rate(t) : 
